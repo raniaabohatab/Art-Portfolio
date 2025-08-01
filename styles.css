@@ -1,0 +1,258 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff; /* Changed to white to create the border effect */
+    overflow: hidden; /* No scrolling */
+    height: 100vh;
+    width: 100vw;
+    padding: 60px 0; /* Add thick white padding top and bottom */
+}
+
+.container {
+    height: calc(100vh - 120px); /* Subtract the padding from body */
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe; /* Background for the main content area */
+}
+
+/* Main Photo Banner */
+.photo-banner {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    height: 60vh; /* Reduced from 70vh to make room for larger pink banner */
+}
+
+.photo {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.6); /* Increased zoom from 1.3 to 1.6 for even closer crop */
+    transition: transform 0.3s ease;
+}
+
+.photo3 img {
+    transform: scale(1.0); /* Normal zoom for 3rd photo */
+}
+
+.photo:hover img {
+    transform: scale(1.7); /* Increased hover zoom from 1.4 to 1.7 */
+}
+
+.photo3:hover img {
+    transform: scale(1.1); /* Slight zoom on hover for 3rd photo */
+}
+
+/* Pink Info Banner */
+.info-banner {
+    height: 40vh; /* Increased from 30vh to make it wider */
+    background: linear-gradient(to top right, #b34048, #c15259, #d15a63); /* Gradient towards top right */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem;
+    box-shadow: 0 -4px 20px rgba(179, 64, 72, 0.2); /* Updated shadow color */
+}
+
+/* Left Side - Name and Bio */
+.info-left {
+    flex: 1;
+    max-width: 50%;
+    text-align: left; /* Back to left alignment */
+    margin-left: 0; /* Reset margin */
+    padding-left: 2rem; /* Add some padding to move slightly right */
+}
+
+.name {
+    font-size: 2.8rem; /* Reduced from 3.5rem */
+    font-weight: 300;
+    color: #ffffff; /* White color */
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-family: 'Playfair Display', 'Georgia', serif; /* Changed font */
+    font-style: italic; /* Added italic style for elegance */
+}
+
+.bio {
+    font-size: 1.1rem;
+    color: #f8f9fa; /* Lighter color for better readability */
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 400px;
+    margin-left: 0; /* Reset margin */
+}
+
+/* Right Side - Navigation Buttons */
+.info-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Reduced from 1rem to make gap smaller between buttons */
+    align-items: flex-start; /* Align to the left */
+    margin-right: 8rem; /* Increased from 4rem to shift buttons more to the left */
+}
+
+.nav-button {
+    background: linear-gradient(to right, #f5b5ba, #f8d0d4, #ffffff); /* Gradient shifting to pure white */
+    border: none;
+    padding: 1rem 4rem; /* Increased horizontal padding from 3rem to make buttons even longer */
+    font-size: 1rem;
+    font-weight: 500;
+    color: #b34048; /* Changed back to pink text for contrast on light background */
+    border-radius: 50px; /* Make buttons more circular */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(179, 64, 72, 0.2); /* Updated shadow color */
+    min-width: 280px; /* Increased width from 200px to make buttons even longer */
+    width: 280px; /* Increased width from 200px to make buttons even longer */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Perfect center alignment */
+    height: 50px; /* Back to original height */
+    font-family: 'Montserrat', 'Arial', sans-serif; /* Changed font */
+    text-transform: none; /* Removed uppercase */
+    letter-spacing: 0.5px; /* Added letter spacing */
+}
+
+.nav-button:hover {
+    background: linear-gradient(to right, #f1a5ab, #f5c0c5, #fefefe); /* Slightly more saturated but still shifting to white on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(179, 64, 72, 0.3); /* Enhanced shadow on hover */
+    color: #8a2f35; /* Darker pink text on hover for better contrast */
+}
+
+.nav-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 40px 0; /* Slightly smaller padding on mobile */
+    }
+    
+    .container {
+        height: calc(100vh - 80px); /* Adjust for smaller padding */
+    }
+    
+    .info-banner {
+        padding: 0 2rem;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .info-left {
+        max-width: 100%;
+        text-align: center;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    
+    .name {
+        font-size: 2.2rem;
+    }
+    
+    .bio {
+        font-size: 1rem;
+        max-width: 100%;
+        margin-left: 0;
+    }
+    
+    .info-right {
+        flex-direction: row;
+        gap: 0.3rem; /* Reduced from 0.5rem for smaller gap on mobile */
+        align-items: center;
+        margin-right: 2rem; /* Reduced margin for mobile but still shifted left */
+    }
+    
+    .nav-button {
+        padding: 0.75rem 3rem; /* Increased horizontal padding for longer buttons */
+        font-size: 0.9rem;
+        min-width: 200px; /* Increased width for longer buttons */
+        width: auto;
+        height: 45px; /* Back to normal height */
+        border-radius: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 30px 0; /* Even smaller padding on very small screens */
+    }
+    
+    .container {
+        height: calc(100vh - 60px); /* Adjust for smaller padding */
+    }
+    
+    .info-banner {
+        padding: 0 1rem;
+    }
+    
+    .name {
+        font-size: 1.8rem;
+    }
+    
+    .bio {
+        font-size: 0.9rem;
+    }
+    
+    .info-right {
+        flex-direction: column;
+        gap: 0.4rem; /* Reduced from 0.75rem for smaller gap */
+    }
+    
+    .nav-button {
+        padding: 0.75rem 2.5rem;
+        font-size: 0.85rem;
+        min-width: 220px; /* Increased width for even longer buttons */
+        width: 220px; /* Increased width for even longer buttons */
+        height: 40px; /* Back to normal height */
+        border-radius: 20px;
+    }
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-banner {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Focus states for accessibility */
+.nav-button:focus {
+    outline: 2px solid #ffffff; /* Changed to white for better contrast */
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar (hidden but accessible) */
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+} 
